@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.a48c186e.css",
-    "main.js": "/static/js/main.b5ef51ae.js",
-    "index.html": "/index.html",
-    "main.a48c186e.css.map": "/static/css/main.a48c186e.css.map",
-    "main.b5ef51ae.js.map": "/static/js/main.b5ef51ae.js.map"
+    "main.css": "/danquox/site.git/static/css/main.a48c186e.css",
+    "main.js": "/danquox/site.git/static/js/main.b5ef51ae.js",
+    "index.html": "/danquox/site.git/index.html",
+    "main.a48c186e.css.map": "/danquox/site.git/static/css/main.a48c186e.css.map",
+    "main.b5ef51ae.js.map": "/danquox/site.git/static/js/main.b5ef51ae.js.map"
   },
   "entrypoints": [
     "static/css/main.a48c186e.css",
