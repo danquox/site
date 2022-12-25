@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins&display=swap');
+
+@function random_range($min, $max) {
+  $rand: random();
+  $random_range: $min + floor($rand * (($max - $min) + 1));
+  @return $random_range;
+}
+
+.snow {
+  $total: 500;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2);
+  z-index: 0;
+
+  @for $i from 1 through $total {
+    $random-x: random(1000000) * 0.0001vw;
+    $random-offset: random_range(-100000, 100000) * 0.0001vw;
+    $random-x-end: $random-x + $random-offset;
+    $random-x-end-yoyo: $random-x + ($random-offset / 2);
+    $random-yoyo-time: random_range(30000, 80000) / 100000;
+    $random-yoyo-y: $random-yoyo-time * 100vh;
+    $random-scale: random(10000) * 0.0001;
+    $fall-duration: random_range(20, 40) * 1s;
+    $fall-delay: random(30) * -1s;
+
+    &:nth-child(#{$i}) {
+      opacity: random(10000) * 0.0001;
+      transform: translate($random-x, -10px) scale($random-scale);
+      animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
+    }
+
+    @keyframes fall-#{$i} {
+      #{percentage($random-yoyo-time)} {
+        transform: translate($random-x-end, $random-yoyo-y) scale($random-scale);
+      }
+
+      to {
+        transform: translate($random-x-end-yoyo, 99vh) scale($random-scale);
+      }
+    }
+  }
+}
+
+body {
+  background: linear-gradient(to bottom, #0b0c11 5%, #10131a 95%);
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.snow-container {
+  position: absolute;
+  z-index: 0;
+}
+
+.__App {
+  position: absolute;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  width: 100vw;
+  z-index: 999;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+#profile-button {
+  display: inline;
+  border-radius: 10%;
+  border: 2px solid rgba(164, 169, 177, 0.6);
+  box-shadow: 0 0 5px 2px rgba(164, 169, 177, 0.3);
+  margin: 15px;
+  height: clamp(65px, 10%, 75px);
+  width: clamp(65px, 10%, 75px);
+  cursor: pointer;
+  opacity: 0;
+  animation: fade-in 0.5s forwards;
+  transition-duration: 0.175s;
+
+  &:hover {
+    margin: 13px 12px 12px 13px;
+    box-shadow: 0 0 5px 2px rgba(164, 169, 177, 0.5);
+    height: clamp(70px, 10%, 80px);
+    width: clamp(70px, 10%, 80px);
+    transition-duration: 0.175s;
+  }
+}
+
+
+
+.hover {
+  position: absolute;
+  left: 50%;
+  top: 110%;
+  transform: translate(-50%, 0);
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  padding: 5px 10px;
+  opacity: 0;
+  transition-duration: 0.25s;
+
+  p {
+    font-size: 12px;
+    white-space: nowrap;
+    font-family: "Poppins";
+    margin: 0;
+  }
+}
+
+.discord-activity {
+  position: relative;
+  display: flex;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  border-radius: 5px;
+  height: clamp(69px, 10vw, 79px);
+  min-width: 200px;
+  width: fit-content;
+  margin: 15px 15px 15px 0;
+  animation: fade-in 0.4s forwards;
+  animation-delay: 1s;
+
+  .activity-thumbnail {
+    height: 80%;
+    border-radius: 10%;
+    margin: auto 0;
+    margin-left: 8px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.15);
+  }
+
+  .activity-details {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 15px 0 10px;
+    white-space: nowrap;
+    width: fit-content;
+
+    p {
+      font-family: "Poppins";
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 15px;
+      margin: 0;
+    }
+    .ad-sub {
+      font-size: 12px;
+    }
+  }
+
+  &:hover .hover {
+    opacity: 1;
+    transition-duration: 0.5s;
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  width: 100vw;
+
+  p {
+    font-family: "Montserrat";
+    font-size: 100%;
+    margin: 0 15px;
+    color: white;
+  }
+}
+
+.about-me {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin: clamp(100px, 10vh, 300px) 0;
+  width: clamp(150px, 70vw, 475px);
+
+  p {
+    color: rgb(211, 211, 211);
+    font-family: "Montserrat";
+    font-size: 20px;
+    margin: 5px 0;
+  }
+  p:first-child {
+    color: rgb(255, 255, 255);
+    font-family: "Montserrat";
+    font-size: 40px;
+    margin: 15px 0;
+  }
+
+  z-index: 999;
+}
+
+.socials-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  height: 60px;
+  margin: 40px 0;
+}
+
+.social-button {
+  text-decoration: none;
+  color: transparent;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10%;
+  height: 100%;
+  width: 60px;
+  transition-duration: .10s;
+
+  img {
+    height: 100%;
+    filter: invert(100);
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transition-duration: .15s;
+  }
+}
+
+
+.projects {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin: clamp(100px, 10vh, 300px) 0;
+  width: clamp(150px, 70vw, 475px);
+  height: 350px;
+
+  p {
+    color: rgb(211, 211, 211);
+    font-family: "Montserrat";
+    font-size: 20px;
+    margin: 5px 0;
+  }
+  z-index: 999;
+}
