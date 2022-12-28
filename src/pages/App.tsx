@@ -26,7 +26,7 @@ const App = () => {
     <React.StrictMode>
       <div className='__App'>
         <div className='header'>
-          <img id='profile-button' onClick={settingsView} src="https://www.iconspng.com/images/transparent-background-pattern/transparent-background-pattern.jpg" alt="" />
+          <img id='profile-button' onClick={settingsView} style={{opacity: 0}} src="https://www.iconspng.com/images/transparent-background-pattern/transparent-background-pattern.jpg" alt="" />
           <div id='hello' style={{display: "none"}}>hello</div>
           <Lanyard />
         </div>

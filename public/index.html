@@ -14,6 +14,7 @@
           .then(response => response.json())
           .then(data => {
             document.getElementById("profile-button").setAttribute("src", (data));
+            document.getElementById("profile-button").style = "";
           });
       </script>
     </div>
