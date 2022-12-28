@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/danquox/site/static/css/main.a48c186e.css",
-    "main.js": "/danquox/site/static/js/main.b5ef51ae.js",
-    "index.html": "/danquox/site/index.html",
-    "main.a48c186e.css.map": "/danquox/site/static/css/main.a48c186e.css.map",
-    "main.b5ef51ae.js.map": "/danquox/site/static/js/main.b5ef51ae.js.map"
+    "main.css": "/site/static/css/main.a48c186e.css",
+    "main.js": "/site/static/js/main.b5ef51ae.js",
+    "index.html": "/site/index.html",
+    "main.a48c186e.css.map": "/site/static/css/main.a48c186e.css.map",
+    "main.b5ef51ae.js.map": "/site/static/js/main.b5ef51ae.js.map"
   },
   "entrypoints": [
     "static/css/main.a48c186e.css",
